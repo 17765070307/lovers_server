@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="af25a8f8-7686-4723-a225-366bf8f88773" name="Lovers">
+        <fileTransfer rootFolder="/root/GO_Code/src" accessType="SFTP" host="101.34.255.64" port="22" sshConfigId="5d9ccba8-5c14-4c2a-9dca-e6e58387d0b7" sshConfig="myser">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
