@@ -9,8 +9,7 @@ import (
 )
 
 func Login(ctx *gin.Context, code, password string) (db.User, error) {
-	sql := fmt.Sprintf("select * from user where user_code='%s'", code)
-	users, _ := db.UserQuery(ctx, sql)
+	users, _ := db.UserQuery(ctx)
 	if len(users) == 0 {
 		return db.User{}, errors.New(fmt.Sprintf("find no user, userCode: %s", code))
 	}

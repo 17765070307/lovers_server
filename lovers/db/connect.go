@@ -3,6 +3,7 @@ package db
 import (
 	"fmt"
 
+	"github.com/sirupsen/logrus"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -21,25 +22,10 @@ type Table interface {
 
 var DB *gorm.DB
 
-//func init() {
-//	path := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", userName, password, ip, port, dbName)
-//	DB, _ = sql.Open("mysql", path)
-//	//defer DB.Close()
-//	//if err != nil {
-//	//	fmt.Println(err.Error())
-//	//}
-//	DB.SetConnMaxLifetime(100)
-//	DB.SetMaxIdleConns(10)
-//	if err := DB.Ping(); err != nil {
-//		fmt.Println("opon database fail")
-//		return
-//	}
-//	fmt.Println("connnect success")
-//}
-
 func init() {
 	path := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=true", userName, password, ip, port, dbName)
 	DB, _ = gorm.Open(mysql.Open(path), &gorm.Config{})
 	DB.Table("user").Create(&User{})
 	DB.Table("weight_record").Create(&WeightRecord{})
+	logrus.Infof("init gorm config successfully, path=%s", path)
 }
